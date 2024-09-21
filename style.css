@@ -1,0 +1,71 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #87CEEB, #FFB6C1); /* Gradasi biru ke merah muda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#app {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.score {
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.games {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.option {
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 30px;
+    cursor: pointer;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.option:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+button {
+    background-color: #2883a7;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+button:hover {
+    background-color: #0b9b2a;
+}
+
+#botMessage {
+    margin: 10px 0;
+    font-style: italic;
+    color: #6c757d;
+}

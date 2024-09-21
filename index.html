@@ -43,14 +43,14 @@
         class Start {
             constructor() {
                 this.playerNames = ["Player 1", "Player 2", "Zabot"];
-                this.playerOptions = ["", ""]; // Player options
+                this.playerOptions = ["", ""]; 
                 this.winner = "";
-                this.playerScores = [0, 0]; // Scores for Player 1 and Bot
-                this.isVsBot = false; // Flag to check if it's against Bot
+                this.playerScores = [0, 0];
+                this.isVsBot = false; 
             }
 
             setPlayerOption(option, player) {
-                this.playerOptions[player - 1] = option; // Set option for Player 1 or 2
+                this.playerOptions[player - 1] = option; 
             }
 
             botBrain() {
@@ -68,10 +68,10 @@
                     (option1 === "✌🏼️" && option2 === "🤛🏼") ||
                     (option1 === "🤛🏼" && option2 === "🫲🏼")
                 ) {
-                    this.winner = this.playerNames[1]; // Player 2 wins
+                    this.winner = this.playerNames[1]; 
                     this.playerScores[1]++;
                 } else {
-                    this.winner = this.playerNames[0]; // Player 1 wins
+                    this.winner = this.playerNames[0]; 
                     this.playerScores[0]++;
                 }
             }
@@ -83,12 +83,12 @@
             }
 
             resetGame() {
-                this.playerOptions = ["", ""]; // Reset player options
+                this.playerOptions = ["", ""];
                 this.winner = "";
             }
 
             resetScores() {
-                this.playerScores = [0, 0]; // Reset scores
+                this.playerScores = [0, 0]; 
             }
         }
 
@@ -96,22 +96,22 @@
 
         function startMultiplayer() {
             game.isVsBot = false;
-            game.playerNames = ["Player 1", "Player 2"]; // Update names for multiplayer
-            document.getElementById("botOptions").style.display = "none"; // Hide bot options
-            document.getElementById("playerOptions").style.display = "flex"; // Show multiplayer options
+            game.playerNames = ["Player 1", "Player 2"];
+            document.getElementById("botOptions").style.display = "none"; 
+            document.getElementById("playerOptions").style.display = "flex"; 
             resetGame();
         }
 
         function startVsBot() {
             game.isVsBot = true;
-            game.playerNames = ["Player 1", "Zabot"]; // Update names for bot
-            document.getElementById("playerOptions").style.display = "none"; // Hide multiplayer options
-            document.getElementById("botOptions").style.display = "flex"; // Show bot options
+            game.playerNames = ["Player 1", "Zabot"];
+            document.getElementById("playerOptions").style.display = "none"; 
+            document.getElementById("botOptions").style.display = "flex"; 
             resetGame();
         }
 
         function pickOption(player, option) {
-            game.setPlayerOption(option, player); // Set option based on player
+            game.setPlayerOption(option, player);
             const inGame = document.getElementById("inGame");
             const botMessage = document.getElementById("botMessage");
 
@@ -119,20 +119,18 @@
 
             if (game.isVsBot) {
                 if (player === 1) {
-                    // If Player 1 picks, wait for Bot
-                    botMessage.style.display = "block"; // Show bot message
+                    botMessage.style.display = "block"; 
                     setTimeout(() => {
                         const botChoice = game.botBrain();
-                        game.setPlayerOption(botChoice, 2); // Set bot's choice
-                        inGame.textContent += `, Bot memilih: ${botChoice}`;
-                        botMessage.style.display = "none"; // Hide bot message
+                        game.setPlayerOption(botChoice, 2); 
+                        inGame.textContent += `, Zabot memilih: ${botChoice}`;
+                        botMessage.style.display = "none"; 
                         calculateResult();
                     }, 1500);
                 }
             } else {
-                // In multiplayer mode, we need both players to select before calculating
                 if (game.playerOptions[0] && game.playerOptions[1]) {
-                    calculateResult(); // Calculate result only if both have chosen
+                    calculateResult(); 
                 }
             }
         }
@@ -149,9 +147,8 @@
             scorePlayer1.textContent = `Player 1: ${game.playerScores[0]}`;
             scorePlayer2.textContent = game.isVsBot 
                 ? `Zabot: ${game.playerScores[1]}` 
-                : `Player 2: ${game.playerScores[1]}`; // Update score display for multiplayer
+                : `Player 2: ${game.playerScores[1]}`; 
 
-            // Reset player options after calculating result
             game.resetGame();
         }
 
@@ -162,7 +159,7 @@
             document.getElementById("scorePlayer1").textContent = "Player 1: 0";
             document.getElementById("scorePlayer2").textContent = game.isVsBot 
                 ? "Zabot: 0" 
-                : "Player 2: 0"; // Reset scores correctly
+                : "Player 2: 0"; 
         }
     </script>
 </body>

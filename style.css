@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to bottom right, #87CEEB, #FFB6C1); /* Gradasi biru ke merah muda */
+    background: linear-gradient(to bottom right, #87CEEB, #FFB6C1); 
     display: flex;
     justify-content: center;
     align-items: center;
